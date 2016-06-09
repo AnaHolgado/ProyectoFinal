@@ -1,0 +1,65 @@
+{% extends 'pagina.html.twig' %}
+
+{% block header %}
+{#<div class="right-align">
+    <a href="../Controller/proyectoController.php" class="black-text">proyectos</a> > <a href="../Controller/pizarraController.php" class="black-text"> pizarra</a>
+</div>#}
+{% endblock %}
+
+{% block cuerpo %}
+    <br><br>
+    <article id="whiteboard">
+        <h5>PROYECTO {{codPro}}</h5>
+        <div class="center-align flex-container">
+          <section class="pendiente">
+                <h6>Pendiente</h6>
+                {% for tarea in tareas if "PENDIENTE" in tarea.estadoTar  %}
+                    <div class="draggable {% if "ADMIN" != user.permisoUsu %} {% if user.codUsu != tarea.codUsu%}deshabilitar {% endif %}{% endif %}">
+                        <span>Tarea {{tarea.ordTar}} <input type="hidden" value="{{tarea.codTar}}" name="codTarPost-it" class="codTarPost-it"/></span>
+                        <p><span class="left">{{tarea.horPreTar}}h.</span> 
+                            {% for programador in programadores if tarea.codUsu == programador.codUsu%}
+                            <span class="right">{{programador.loginUsu}}</span></p>
+                            {% endfor %}
+                        <p class="desc">{{tarea.desTar}}</p>
+                    </div>
+                {% endfor %}
+            </section>
+            <section class="proceso">
+                <h6>En proceso</h6>
+                {% for tarea in tareas if "EN PROCESO" in tarea.estadoTar  %}
+                    <div class="draggable  {% if "ADMIN" != user.permisoUsu %} {% if user.codUsu != tarea.codUsu%}deshabilitar {% endif %}{% endif %}">
+                        <span>Tarea {{tarea.ordTar}}  <input type="hidden" value="{{tarea.codTar}}" name="codTarPost-it" class="codTarPost-it"/></span>
+                        <p><span class="left">{{tarea.horPreTar}}h.</span>
+                            {% for programador in programadores if tarea.codUsu == programador.codUsu%}
+                                <span class="right">{{programador.loginUsu}}</span></p>
+                            {% endfor %}
+                        <p class=" desc">{{tarea.desTar}}</p>
+                    </div>
+                {% endfor %}
+            </section>    
+            <section class="completado">
+                <h6>Completado</h6>
+                {% for tarea in tareas if "COMPLETADO" in tarea.estadoTar  %}
+                    <div class="draggable  {% if "ADMIN" != user.permisoUsu %} {% if user.codUsu != tarea.codUsu%}deshabilitar {% endif %}{% endif %}">
+                        <span>Tarea {{tarea.ordTar}}  <input type="hidden" value="{{tarea.codTar}}" name="codTarPost-it" class="codTarPost-it"/></span>
+                        <p><span class="left">{{tarea.horPreTar}}h.</span>
+                            {% for programador in programadores if tarea.codUsu == programador.codUsu%}
+                                <span class="right">{{programador.loginUsu}}</span></p>
+                            {% endfor %}
+                        <p class="desc">{{tarea.desTar}}</p>
+                    </div>
+                {% endfor %}
+            </section>
+        </div>
+    </article>
+<!-- DIALOGS -->
+<div class = "white" id="dialog-horasRealizadas">
+    Indique cuantas horas ha utilizado para completar la tarea, gracias.
+    <input type="number" min ="0" name="horReaTar" id="horReaTar" value="0" required/>
+    <label for ="horReaTar" data-error="Horas mayor de 0"></label>
+</div>
+<!-- SONIDO POST-IT -->
+<audio id="player" src="../View/multimedia/nota.mp3"></audio>
+{% endblock %}
+
+

@@ -1,0 +1,57 @@
+<tr>
+    <th class="center-align">NOMBRE</th>
+    <th class="center-align">CATEGORIA</th>
+    <th class="center-align">E-MAIL</th>
+    <th class="center-align">PERMISOS</th>
+    <th class="center-align loginUsu">NOMBRE USUARIO</th>
+    <th class="center-align loginUsu">PASS</th>
+    <th class="center-align"></th>
+    <th class="center-align"></th>
+</tr>
+{% for usuario in usuarios  %}
+    <tr class="tablaEditable">
+    <form id="formUsuMod">
+        <td id="usuarioNombre">
+            <input type="text" class="nom validate" value="{{usuario.NomUsu}}" name="nomUsu" readonly required>
+            <label for ="nomUsu" data-error="Requerido"></label>
+        </td>
+        <input type="hidden" name="codUsu" class="codUsu" value="{{usuario.CodUsu}}" readonly required>
+        <td class="usuarioCategoria">
+            <select class="categoria" name = "catUsu" required>
+                <option value="{{usuario.CatUsu}}" disabled selected>{{usuario.CatUsu}}</option>
+                <option value="ADMIN">ADMIN</option>
+                <option value="SCRUM MASTER">SCRUM MASTER</option>
+                <option value="PROGRAMADOR JUNIOR">PROGRAMADOR JUNIOR</option>
+                <option value="PROGRAMADOR">PROGRAMADOR</option>
+                <option value="PROGRAMADOR SENIOR">PROGRAMADOR SENIOR</option>
+            </select>
+        </td>
+        <td id="usuarioEmail"><input type="email" name="emailUsu" value="{{usuario.EmailUsu}}" class="email validate" readonly required>
+            <label for ="emailUsu" data-error="No es un mail valido"></label>
+        </td>
+        <td id="usuarioPermisos">
+            <select class="permiso validate" name="permisoUsu" required>
+                <option value="{{usuario.PermisoUsu}}" disabled selected>{{usuario.PermisoUsu}}</option>
+                <option value="ADMIN">ADMIN</option>
+                <option value="SCRUM MASTER">SCRUM MASTER</option>
+                <option value="PROGRAMADOR">PROGRAMADOR</option>
+            </select>
+        </td>
+        <td id="usuarioLogin"  class="loginUsu">
+            <input type="text" value="{{usuario.LoginUsu}}" name="loginUsu" class="login loginUsu validate"  minlength="4" length="10" maxlength="10" required readonly>
+            <label for ="loginUsu" data-error="Mínimo 4 caracteres"></label>
+        </td>
+        <td id="usuarioPass" class="loginUsu">
+            <input type="password" value="{{usuario.PassUsu}}" name="passUsu" class="passUsu loginUsu validate" minlength="4" length="10" maxlength="10" required readonly>
+            <label for ="loginUsu" data-error="Mínimo 4 caracteres"></label>
+        </td>
+        <td class="anchoBtn"><button type="button" class='modificarUsuario btn-floating yellow tooltipped' data-position="top" data-delay="50" data-tooltip="MODIFICAR"><i class="material-icons">mode_edit</i></button>
+        <button  type="button" class='confirmarModUsuario btn-floating green tooltipped' data-position="top" data-delay="50" data-tooltip="CONFIRMAR MODIFICACIÓN"><i class="material-icons">done</i></button></td>
+        <td class="anchoBtn"><button  type="button" class='borrarUsuario btn-floating red tooltipped waves-effect waves-light' data-position="top" data-delay="50" data-tooltip="BORRAR"><i class="material-icons">delete</i></button></td>
+   </form>
+    </tr>
+
+{% endfor %}
+
+<script src="../View/js/usuario.js"></script>
+

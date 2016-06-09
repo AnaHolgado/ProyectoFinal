@@ -1,0 +1,51 @@
+{% extends 'pagina.html.twig' %}
+
+{% block header %}
+  <h3 class = "">CLIENTES</h3>
+{% endblock %}
+
+{% block cuerpo %}
+  <article>
+  <!--ALTA -->
+  <form id="formCliAlta">
+    <table class="centered bordered highlight">
+        <tr>
+            <td class="input-field">
+              <input id ="nomempCliAlta" type="text" name = "nomempCli" required>
+              <label for = "nomempCliAlta" data-error="Requerido">Nombre Empresa</label>
+            </td>
+            <td class="input-field">
+              <input id ="tlfCliAlta" type="number" name = "tlfCli" maxlength="9" length="9" required> 
+              <label for = "tlfCliAlta" data-error="Requerido">Telefono</label>
+            </td>
+            <td class="input-field">
+              <input id="emailCliAlta" type="text" name = "emailCli" required>
+              <label for = "emailCliAlta" data-error="Requerido">e-mail</label>
+            </td>
+            <td class="input-field">
+              <input id ="nomconCliAlta" type="text" name = "nomconCli" aria-required="true" required>
+              <label for = "nomconCliAlta" data-error="Requerido">Nombre Contacto</label>
+            </td>
+            <td class="input-field">
+              <button type= "submit" id = "btnAltaCli" class="btn-floating green tooltipped" data-position="top" data-delay="50" data-tooltip="ALTA"><i class="material-icons">playlist_add</i></button>
+            </td>
+        </tr>
+    </table>
+  </form> 
+    <table class="highlight centered bordered" id="listadoClientes"> {% include 'listadoClientes.html.twig' %} </table>
+
+    <section>
+     <!-- MODIFICAR CLIENTE -->
+        <div class="white" id="dialog-ClienteMod"> 
+            <h5 class="center-align">CLIENTE MODIFICAD0</h5>
+            <h1><i class="material-icons" class=" large green-text">done_all</i></h1>
+        </div> 
+     <!-- BORRAR -->
+      <div class = "white" id="dialog-clienteBor">
+        <h5 class="center-align">BORRAR CLIENTE</h5>
+        <p>¿De verdad quiere borrar este cliente?</p>
+      </div>
+    </section>
+  </article>
+
+{% endblock %}

@@ -1,0 +1,2 @@
+usuario:admin  pass:1234
+usuario:usuario pass:1234

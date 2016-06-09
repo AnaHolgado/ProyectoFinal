@@ -1,0 +1,64 @@
+{% extends 'pagina.html.twig' %}
+
+{% block header %}
+    {#<div class="right-align">
+        <a href="../Controller/proyectoController.php" class="grey-text">proyectos</a> > <a href="../Controller/requisitoController.php" class="grey-text"> requisitos</a>
+    </div>#}
+    <h3 class = "">REQUISITOS</h3>
+{% endblock %}
+
+{% block cuerpo %}
+    <article>
+         <section> 
+            <h5 class="center-align grey-text">Requisitos y Tareas del Proyecto <span>{{codPro}}</span></h5>
+            <form id="formReqAlta">
+            <table class="card">
+                <tr>
+                    <td>Nuevo Requisito</td>
+                    <td class="altoMax input-field">
+                        <label for ="desReqAlta" data-error="Requerido">Descripción</label>
+                        <input class="validate" type="text" name = "desReqAlta" id="desReqAlta"/>
+                    </td>
+                    <td class="input-field">
+                    <select type="text" name = "estReqAlta" id="estReqAlta" class="validate" required>
+                        <option value="-1" disabled selected>Fase</option>
+                        <option value = "PENDIENTE">PENDIENTE</option>
+                        <option value = "EN PROCESO">EN PROCESO</option>
+                        <option value = "COMPLETADO">COMPLETADO</option>
+                    </select>
+                    <label for ="estReqAlta" data-error="Seleccione un campo"></label>
+                </td>
+                    <td>
+                        <button type="button" class="btn-floating green tooltipped" data-position="top" data-delay="50" data-tooltip="ALTA" id="ALTAREQ"><i class="material-icons">playlist_add</i></button>
+                    </td>
+                </tr>
+            </table>
+            </form>
+        <!-- Para poder refrescar dinámicamente el listado lo tengo que hace con una llamada ajax enuna etiqueta aparte -->
+            <article id="listado">
+                {% include 'listadoRequisitos.html.twig' %}
+            </article>
+        </section>
+    </article>
+    <!-- DIALOG -->
+    <article>
+        <!-- BORRAR -->
+        <div class="white" id="dialog-requisitoBor"> 
+            <h5 class="center-align">BORRAR REQUISITO</h5>
+            <p>¿Está seguro de borrar el requisito con sus tareas?</p>
+        </div>
+
+        <!-- MODIFICAR TAREA -->
+        <div class="white" id="dialog-TareaMod"> 
+            <h5 class="center-align">TAREA MODIFICADA</h5>
+            <h1><i class="material-icons" class=" large green-text">done_all</i></h1>
+        </div> 
+        
+        <!-- BORRAR TAREA-->
+        <div class = "white" id="dialog-tareaBor"> 
+            <h5 class="center-align">BORRAR TAREA</h5>
+            <p>¿Está seguro de borrar la tarea?</p>
+        </div>
+    </article>
+    <script src="../View/js/tarea.js"></script>
+{% endblock %}

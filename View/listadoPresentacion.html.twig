@@ -1,0 +1,25 @@
+        {% set i = 1 %}
+        {% for proyecto in proyectos%}
+        <div class="col l3 m5 s10 card small proyectos pizarraProyecto tooltipped" data-position="top" data-delay="50" data-tooltip="PIZARRA">
+            <input type="hidden" value="{{proyecto.CodPro}}" class="pizarra">
+            <p>{{proyecto.CodPro}}</p>
+            <div class="card-image">
+              <div class="porcentaje">
+                    <input type="hidden" class="horasPrevistas" value="{{proyecto.HorasPro}}">
+                    <input type="hidden" class="horasReales" value="{{proyecto.HorReaPro}}">
+                    <span class="per"></span>
+                </div> 
+                <div id="canvas-holder">
+                    <canvas id="canvas{{i}}" height="120%" width="120%"></canvas>
+                </div>
+              
+            </div>
+            <div class="card-action black-text">
+                <span class="black-text center-align">{{proyecto.fasePro}}</span><br>
+                {{proyecto.nomPro}}
+            </div>
+        </div>
+            {% set i = i+1 %}
+        {% endfor %}
+        <div class="clear"></div>   
+<script src="../View/js/presentacion.js"></script>

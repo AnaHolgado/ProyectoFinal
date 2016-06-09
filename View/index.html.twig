@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <meta charset="UTF-8">
+    <title>SCRUMBOARD</title>
+        <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>    
+        <link rel="shortcut icon" type="image/svg" href="../View/images/favicon.png">
+      <!--jQuery y jQuery-ui-->
+        <script src="../View/js/jquery-2.1.4.min.js" type="text/javascript"></script>
+        <script src="../View/js/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+
+        <!--Materialize-->
+        <link href="../View/css/materialize.css" rel="stylesheet" type="text/css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- jQuery DatePicker-->
+        <script src="../View/js/date_picker/picker.js" type="text/javascript"></script>
+        <script src="../View/js/date_picker/picker.date.js" type="text/javascript"></script>
+        <script src="../View/js/date_picker/translations/es_ES.js" type="text/javascript"></script>
+        <script src="../View/js/date_picker/legacy.js" type="text/javascript"></script>
+        
+        <!-- CSS -->
+        <link href="../View/css/style.css" rel="stylesheet" type="text/css"/>
+
+        <!-- jQuery Validate -->
+        <script src="../View/js/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="../View/js/jquery.js" type="text/javascript"></script>
+        
+        <!-- Iconos materialize -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        
+        <!-- ANGULAR -->
+        <script src="../View/js/angular.min.js" type="text/javascript"></script>
+        
+        
+{#              <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>#}
+	<script src="../View/js/app.js" type="text/javascript"></script>
+    
+  </head>
+  <body>
+        <nav class=" black nav-wrapper" role="navigation">
+            <div class="container">
+                <a href="../Controller/indexController.php" class="brand-logo left hide-on-small-only"><img src="../View/images/logo2.svg"/></a>
+                <ul class="right">
+                  <li><a href="#" id="login">LOGIN</a></li>
+                </ul>
+            </div>
+        </nav>
+    
+    <section id="contenido" class ="black-text">
+        <article class="cyan row valign-wrapper hide-on-small-only">
+            <div class="col m0 l1 hide-on-med-and-down">&nbsp;</div>
+            <h2 class="col m12 l4 white-text valing">PIZARRA SCRUM PARA TUS PROYECTOS</h2>
+            <div class="col m0 l2 hide-on-med-and-down">&nbsp;</div>
+            <img  class="col m12 l4 valign" src="../View/images/Pizarra2.svg">
+            <div class="col l1 hide-on-med-and-down">&nbsp;</div>
+        </article>
+        <article class="container flow-text row">
+            <h4 class="center-align orange-text">¿Que és una pizarra Scrum?</h4>
+            <div class="col m6 l4 hide-on-small-only imagen">
+                <img class="" src="../View/images/post-it.svg">
+            </div>
+            <div class="col s12 m6 l8">
+            <p class="light"> La pizarra Scrum es la parte más importante de la 
+                metodología ágil más usada en el mundo de la programacion.</p>
+            <p>La pizarra Scrum se divide en tres zonas, una para las tareas 
+                pendientes, otras las que están en proceso y la última para las 
+                tareas completadas</p>
+            <p>Se escribe en post-it cada una de las tareas en la que se divide 
+                el proyecto. En un inicio se colocan en la zona de pendiente. 
+                Cuando un programador empieza la tarea, desplaza el post-it a la 
+                zona de prograso de la pizarra. Y una vez se ha completado la 
+                tarea, se vuelve a desplazar el post-it a la zona de completados</p>
+            </div> 
+        </article>
+        <article class="row container">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="large material-icons">group</i></h2>
+            <h5 class="center">Clientes</h5>
+            <p class="light">Esta metodología consiste en trabajar junto al cliente en saber cuales 
+                son los requisitos necesarios en los que se compone el proyecto 
+                y establece un orden de prioridad para su desarrollo. El cliente 
+                se compromete en contestar todas las dudas que surjan durante el 
+                desarrollo lo antes posible.</p>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="large material-icons">grade</i></h2>
+            <h5 class="center">Equipo de Trabajo</h5>
+            <p class="light">El Scrum Master, que hace las veces de jefe de proyecto, dividirá 
+                los requisitos en tareas y se las asignará a los programadores. 
+                </p>
+            <p class="light">El equipo de trabajo 
+                se compromete en tener un los requisitos mas importantes en un 
+                corto periodo de tiempo para que el cliente los pueda ver y valorar.</p>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="large material-icons">stop</i></h2>
+            <h5 class="center">Post-it</h5>
+            <p class="light">Para poder llevar un control del estado del proyecto, se escriben 
+                las tareas en post-it y se colocan en la pizarra Scrum para que todo el equipo pueda verla equipo.</p>
+          </div>
+        </div>
+      </article>        
+<article id="tab" class="container card grey lighten-4" ng-controller="TabController as tab">
+    <ul class="marcador card-title cyan-text">
+      <li class="grey lighten-4" ng-class="{ active: tab.isSet(1) }"><a class="collection-item grey lighten-4" href ng-click="tab.setTab(1)">Español</a></li>
+      <li class="grey lighten-4" ng-class="{ active: tab.isSet(2) }"><a class="collection-item grey lighten-4" href ng-click="tab.setTab(2)">Inglés</a></li>
+    </ul>
+    <div class="card-content grey lighten-4" ng-show="tab.isSet(1)">
+        <br><br><div><h5  class="light">Listado de Funcionalidades</h5></div>
+        <div>
+            <blockquote class="light">Visualizar en la pizarra Scrum el estado de las tareas de un proyecto.</blockquote>
+            <blockquote class="light">Llevar el control del porcentaje que se lleva completado un proyectos</blockquote>
+            <blockquote class="light">Alta, baja y modificacion de datos de clientes que tiene contratados un proyecto.</blockquote>
+            <blockquote class="light">Alta, baja y modificacion de datos de los programadores de una empresa.</blockquote>
+            <blockquote class="light">Alta, baja y modificacion de datos de proyectos, vinculandolos a un cliente.</blockquote>
+            <blockquote class="light">Alta, baja y modificacion de datos de los requisitos que componen un proyecto.</blockquote>
+            <blockquote class="light">Alta, baja y modificacion de datos de las tareas que componen los requisitos.</blockquote>
+            <blockquote class="light">Calcular las horas estimadas de produccion de un proyecto.</blockquote>
+            <blockquote class="light">Saber las horas que se han usado para completar un proyecto.</blockquote>
+        </div>
+    </div>
+    <div class="card-content grey lighten-4" ng-show="tab.isSet(2)">
+        <br><br><div><h5  class="light">List of features</h5></div>
+        <div>
+            <blockquote class="light">Display on the board Scrum status of the tasks of a project.</blockquote>
+            <blockquote class="light">Check the percentage that takes completed projects.</blockquote>
+            <blockquote class="light">Create, Read, Update and Delete customer data has hired a project..</blockquote>
+            <blockquote class="light">Create, Read, Update and Delete programmers data of a company.</blockquote>
+            <blockquote class="light">Create, Read, Update and Delete project data, linked to a customer.</blockquote>
+            <blockquote class="light">Create, Read, Update and Delete data that make up a project requirements.</blockquote>
+            <blockquote class="light">Create, Read, Update and Delete data that make up a requirement tasks.</blockquote>
+            <blockquote class="light">Calculate the estimated hours of production of a project.</blockquote>
+            <blockquote class="light">Knowing the hours that have been used to complete a project.</blockquote>
+        </div>
+    </div>
+</article>
+
+
+        <!-- LOGIN -->
+      <div class = "white" id="dialog-login"> 
+          <h5 class="center-align">LOGIN</h5>
+          <form>
+              <label for = "user" data-error="Incorrecto">user</label>
+              <input class="center-align" type="text" name="user" id="user" required>
+              <label for = "user" data-error="Incorrecto"></label>
+              <label for = "pass" data-error="Incorrecto">pass</label>
+              <input class="center-align" type="password" name="pass" id="pass" required>
+              <label for = "pass" data-error="Incorrecto"></label>
+          </form>
+      </div>  
+    </section>
+
+
+    <footer class="page-footer black white-text">
+        <div class="container row">
+            <div class="col l6 s12">
+              <h5>Proyecto Final de CFGS Desarrollo de Aplicaciones Web</h5>
+              <p>
+                  Pizarra Scrum para uso de programadores y diseñadores web. 
+                  Se puede ver de un vistazo el estado de los proyectos y las tareas que los componen.
+                  Además, podrás guardar informacion de clientes y programadores para facilitar la comunicación.
+              </p>
+            </div>
+            <div class="col l3 s12">
+              <h5 class="white-text">Utilidades</h5>
+              <ul>
+                <li><a class="white-text" href="#!">Mapa del Sitio</a></li>
+                <li><a class="white-text" href="https://github.com/AnaHolgado">Github</a></li>
+                <li><a class="white-text" href="">Linkind</a></li>
+              </ul>
+            </div>
+            <div class="col l3 s12">
+              <h5 class="white-text">Enlaces de Interes</h5>
+              <ul>
+                <li><a class="white-text" href="http://iescampanillas.com/">IES Campanillas</a></li>
+                <li><a class="white-text" href="http://quinijuego.esy.es">QuiniJuego</a></li>
+                <li><a class="white-text" href="http://dev.tallermecanicomalaga.com">Reparauto</a></li>
+                <li><a class="white-text" href="http://mediosyaudiencias.esy.es">Medios y Audiencias</a></li>
+              </ul>
+            </div>
+        </div>
+        <div class="footer-copyright grey darken-4">
+            <div class="container">
+            Realizado por Ana Holgado
+            </div>
+          </div>
+    </footer>
+
+        <script src="../View/js/materialize.js" type="text/javascript"></script>
+
+        <script src="../View/js/js.js"></script>             
+  </body>
+</html>

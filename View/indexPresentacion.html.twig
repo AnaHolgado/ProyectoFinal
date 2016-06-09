@@ -1,0 +1,60 @@
+{% extends 'pagina.html.twig' %}
+
+{% block header %}
+    <div class="row">
+        <h3 class="col m8">MIS PROYECTOS</h3>
+        <h3 class="col m4 center-align hide-on-small-only">DATOS PERSONALES</h3>
+    </div>
+{% endblock %}
+
+{% block cuerpo %}
+  <article class = "center-align section row">
+    <section class="col s12 m8 row">
+        <select type="text" class=" col s10 validate" id="cambiarEstado">
+            <option value="TODOS" selected>TODOS</option>
+            <option value = "EN PROCESO">EN PROCESO</option>
+            <option value = "PENDIENTE">PENDIENTE</option>
+            <option value = "COMPLETADO">COMPLETADO</option>
+        </select>
+        <div id="panel-proyectos">{% include 'listadoPresentacion.html.twig' %}</div>     
+    </section>
+    
+    <section class="col s12 m4 card personal">
+        <div class="card-title"><i class="large cyan-text material-icons">perm_identity</i></div>
+        <div class="row"><span class="col s12 l5 right-align">Nombre Usuario:</span> <span class="col s12 l7 left-align">{{user.nomUsu}}</span></div>
+        <div class="row"><span class="col s12 l5 right-align">Código de Usuario:</span><span class="col s12 l7 left-align">{{user.codUsu}}</span></div>
+        <div class="row"><span class="col s12 l5 right-align">Login:</span> <span class="col s12 l7 left-align">{{user.loginUsu}}</span></div>
+        <div class="row"><span class="col s12 l5 right-align">Categoría:</span> <span class="col s12 l7 left-align">{{user.CatUsu}}</span></div>
+        <div class="row"><span class="col s12 l5 right-align">e-mail:</span> <span class="col s12 l7 left-align">{{user.EmailUsu}}</span></div>
+        <div class="row"><span class="col s12 l5 right-align">Permiso:</span> <span class="col s12 l7 left-align">{{user.PermisoUsu}}</span></div>
+        <div class="card-content card-action card-title orange-text">
+            <span class="activator tooltipped" data-position="bottom" data-delay="50" data-tooltip="CAMBIAR CONTRASEÑA">Cambiar Contraseña</span>
+        </div>
+        <div id="pass" class="card-reveal">
+            <span class="card-title orange-text">Cambio de Contraseña<i class="material-icons right">close</i></span>
+            <div class="input-field center-align">
+                <input class="center-align" type="password" id="passActual" name="passActual"  length="10" maxlength="10" required>
+                <label for="passActual" class="center-align"  data-error="Contraseña incorrecta">Contraseña Actual</label>
+            </div>
+            <div class="input-field center-align">
+                <input class="center-align" type="password" id="passNueva" name="passNueva" length="10" maxlength="10" required>
+                <label for="passNueva" class="center-align"  data-error="Mínimo 4 caracteres">Nueva Contraseña</label>
+            </div>
+            <div class="input-field center-align">
+                <input class="center-align" type="password" id="passNuevaR" name="passNuevaR" length="10" maxlength="10" required>
+                <label for="passNuevaR" class="center-align" data-error="Mínimo 4 caracteres">Repetir Nueva Contraseña</label>
+            </div>
+            <div class="card-action"><button type="button" class="btn-flat orange-text" id="cambiarPass">CAMBIAR</button></div>
+        </div>
+    </section>
+    <!-- FORM PIZARRA -->  
+    <form id="formPiz" method="post" action="../Controller/pizarraController.php">
+        <input type="hidden" id="codProPiz" name="codProPiz">
+    </form>
+    <!-- MODIFICAR USUARIO -->
+    <div class="white" id="dialog-passCambiado"> 
+        <h5 class="center-align">CONTRASEÑA CAMBIADA</h5>
+        <h1><i class="material-icons" class=" large green-text">done_all</i></h1>
+    </div> 
+  </article>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'pagina.html.twig' %}
+
+{% block header %}
+    <h3 class = "">PROYECTOS</h3>
+{% endblock %}
+
+{% block cuerpo %}
+    <article>
+        <form id="formProAlta">
+        <table class="centered bordered highlight">
+            <tr>
+                <td class="input-field">
+                    <input class="validate" type="text" name = "nomPro" id="nomPro" required>
+                    <label for = "nomPro" data-error="Requerido">Nombre</label>
+                </td>
+                <td class="input-field">
+                    <input type="text" name = "fechfinPro" class="datepicker picker__input" id="fechfinPro" required> 
+                    <label for = "fechfinPro" data-error="Requerido">Fecha Fin</label>
+                </td>
+                <td class="input-field">
+                    <select type="text" name = "fasePro" id="fasePro" class="validate" required>
+                        <option value="-1" disabled selected>Fase</option>
+                        <option value = "PENDIENTE">PENDIENTE</option>
+                        <option value = "EN PROCESO">EN PROCESO</option>
+                        <option value = "COMPLETADO">COMPLETADO</option>
+                    </select>
+                    <label for ="fasePro" data-error="Seleccione un campo"></label>
+                </td>
+                <td class="input-field">
+                    <select type="text" name = "codCli" id="codCli" class="validate" required>
+                        <option value="-1" disabled selected>Cliente</option>
+                        {% for cliente in clientes  %}
+                            <option value ="{{cliente.codCli}}">{{cliente.nomempCli}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td class="input-field">
+                    <button type="button"class="btn-floating green tooltipped" data-position="top" data-delay="50" data-tooltip="ALTA" id="ALTA"><i class="material-icons">playlist_add</i></button>
+                </td>
+            </tr>
+        </table>
+        </form>
+        <table class="centered bordered highlight" id="listadoProyecto">{% include 'listadoProyectos.html.twig' %} </table>
+        
+    </article>
+    <!-- DIALOG -->
+    <article>
+        <!-- MODIFICAR PROYECTO -->
+        <div class="white" id="dialog-ProyectoMod"> 
+            <h5 class="center-align">PROYECTO MODIFICAD0</h5>
+            <h1><i class="material-icons" class=" large green-text">done_all</i></h1>
+        </div> 
+        <!-- BORRAR -->
+        <div class = "white" id="dialog-proyectoBor"> 
+            <h5 class="center-align">BORRAR PROYECTO</h5>
+            <p>¿Está seguro de borrar el Proyecto con sus Requisitos y sus tareas?</p>
+        </div>
+
+            
+    <!-- FORM REQUISITOS -->  
+    <form id="formReq" method="post" action="../Controller/requisitoController.php">
+        <input type="hidden" id="codProReq" name="codProReq">
+    </form>
+            
+    <!-- FORM PIZARRA -->  
+    <form id="formPiz" method="post" action="../Controller/pizarraController.php">
+        <input type="hidden" id="codProPiz" name="codProPiz">
+    </form>
+    </article>
+{% endblock %}

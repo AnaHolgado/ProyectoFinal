@@ -1,0 +1,53 @@
+<tr>
+    <th class="center-align minWidth5">NOMBRE</th>
+    <th class="center-align" class="center-align margin0">CODIGO</th>
+    <th class="center-align margin0">FECHA ALTA</th>
+    <th class="center-align margin0">FECHA FIN</th>
+    <th class="center-align margin0">HORAS PREVISTAS</th>
+    <th class="center-align margin0">HORAS REALES</th>
+    <th class="center-align margin0">FASE</th>
+    <th class="center-align">NOMBRE CLIENTE</th>
+    <th colspan="4"></th>
+</tr>
+{% for proyecto in proyectos %}
+    <tr class="tablaEditable">
+        <td class="minWidth5" id="proyectoNombre">
+            <input type="text" class="nomProMod validate" value="{{proyecto.NomPro}}" name="nomProMod" readonly>
+            <label for="nomProMod" data-error="Requerido"></label>
+        </td>
+        <td class="margin0" id="proyectoCodigo"><input class="codPro validate" type="hidden" name="codPro" value="{{proyecto.CodPro}}" name="codPro" readonly>{{proyecto.CodPro}}</td>
+        <td class="margin0" id="proyectoFechini">{{proyecto.FechiniPro}}</td>
+        <td class="minWidth5  margin0 center-align" id="proyectoFechfin">
+            <input type="text" class="center-align fechfinProMod validate datepicker picker__input" value="{{proyecto.FechfinPro}}" name="fechfinProMod" readonly> 
+            <label for="fechfinProMod" data-error="Requerido"></label>
+        </td>
+        <td class="margin0" id="proyectoHoras">{{proyecto.HorasPro}}</td>
+        <td class="margin0" id="proyectoHorasReales">{{proyecto.HorReaPro}}</td>
+        <td class="margin0 minWidth5" id="proyectoFase">
+            <select type="text" name = "faseProMod" class="faseProMod validate">
+                <option value="{{proyecto.fasePro}}" disabled selected>{{proyecto.fasePro}}</option>
+                <option value = "EN PROCESO">EN PROCESO</option>
+                <option value = "PENDIENTE">PENDIENTE</option>
+                <option value = "COMPLETADO">COMPLETADO</option>
+            </select>
+        <td class="minWidth5 center-align" id="clienteCodigo">
+            <select type="text" name = "nomempCliMod" class="nomempCliMod validate">
+                {% for cliente in clientes if cliente.CodCli in proyecto.CodCli %}
+                    <option value ="{{cliente.CodCli}}" disabled selected>{{cliente.nomempCli}}</option>
+                {% endfor %}
+                {% for cliente in clientes %}
+                    <option value ="{{cliente.CodCli}}" >{{cliente.nomempCli}}</option>
+                {% endfor %}
+            </select>
+        </td>
+        <td class="margin0">
+            <button type="button" class='modificarProyecto btn-floating yellow tooltipped' data-position="top" data-delay="50" data-tooltip="MODIFICAR"><i class="material-icons">mode_edit</i></button>
+            <button type="button" class='confirmarModProyecto btn-floating green tooltipped' data-position="top" data-delay="50" data-tooltip="CONFIRMAR MODIFICACIÓN"><i class="material-icons">done</i></button>
+        </td>
+        <td class="margin0"><button type="button" class='borrarProyecto btn-floating red tooltipped' data-position="top" data-delay="50" data-tooltip="BORRAR"><i class="material-icons">delete</i></button></td>
+        <td class="margin0"><button type="button" class='requisitosProyecto btn-floating blue tooltipped' data-position="top" data-delay="50" data-tooltip="REQUISITOS"><i class="material-icons">view_list</i></button></td>
+        <td class="margin0"><button type="button" class='pizarraProyecto btn-floating center-align orange tooltipped' data-position="top" data-delay="50" data-tooltip="PIZARRA"><i class="material-icons">view_week</i></button></td>
+    </tr>
+{% endfor %}
+
+<script src="../View/js/proyecto.js"></script>

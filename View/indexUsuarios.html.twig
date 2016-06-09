@@ -1,0 +1,56 @@
+{% extends 'pagina.html.twig' %}
+
+{% block header %}
+    <h3 class = "">PROGRAMADORES</h3>
+{% endblock %}
+
+{% block cuerpo %}
+    <article>
+        <form id="formUsuAlta">
+        <table class="centered bordered highlight">
+            <tr>
+                <td colspan="2" class="input-field"><label for = "nomUsu">Nombre</label><input type="text" name = "nomUsu" id="nomUsuAlt" class="validate"></td>
+                <td class="input-field">
+                    <select class="validate" type="text" name = "catUsuAlt" id ="catUsuAlt" >
+                        <option value="-1" disabled selected>Categoría</option>
+                        <option value="PROGRAMADOR JUNIOR">PROGRAMADOR JUNIOR</option>
+                        <option value="PROGRAMADOR">PROGRAMADOR</option>
+                        <option value="PROGRAMADOR SENIOR">PROGRAMADOR SENIOR</option>
+                    </select>
+                     <label for ="catUsuAlt" data-error="Seleccione un campo"></label>
+                </td>
+                <td class="input-field"><label for = "emailUsuAlt"> e-mail</label><input type="email" name = "emailUsuAlt" id="emailUsuAlt" class="validate"> </td>
+                <td class="input-field">
+                    <select class="validate" type="text" name = "permisoUsuAlt" id="permisoUsuAlt">
+                        <option value="" disabled selected>Permiso</option>
+                        <option value="ADMIN">ADMIN</option>
+                        <option value="SCRUM MASTER">SCRUM MASTER</option>
+                        <option value="PROGRAMADOR">PROGRAMADOR</option>
+                    </select>
+                </td>
+                <td class="input-field"><label for = "loginUsuAlt">Nombre usuario</label><input type="text" name = "loginUsuAlt" id="loginUsuAlt" minlength="4" maxlength="10" length="10" class="validate"></td>
+                <td class="input-field"><label for = "passUsuAlt">Pass</label><input type="password" name = "passUsuAlt" id="passUsuAlt" minlength="4" maxlength="10" length="10" class="validate"></td>
+                <td class="input-field"> </td>
+                <td class="input-field"><button class="btn-floating green tooltipped" data-position="top" data-delay="50" data-tooltip="ALTA" id="ALTAUSUARIO"><i class="material-icons">playlist_add</i></button></td>      
+            </tr>
+        </table>
+        </form>
+        <table class="highlight centered bordered" id="listadoUsuarios">
+            {% include 'listadoUsuarios.html.twig' %}
+        </table>
+        <!-- MODIFICAR USUARIO -->
+        <div class="white" id="dialog-UsuarioMod"> 
+            <h5 class="center-align">PROGRAMADOR MODIFICAD0</h5>
+            <h1><i class="material-icons" class=" large green-text">done_all</i></h1>
+        </div> 
+        
+        <!-- BORRAR -->
+        <div class = "white" id="dialog-usuarioBor"> 
+            <div class="">
+                <h5 class="center-align">BORRAR USUARIO</h5>
+                <p class="center-align">¿Está seguro de borrar el usuario?</p>
+            </div>
+        </div>
+</article>
+
+{% endblock %}

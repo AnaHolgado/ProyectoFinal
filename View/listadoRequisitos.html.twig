@@ -1,0 +1,137 @@
+<section>
+    {% set i = 1 %}
+    {% set j = 1 %}
+    {% if requisitos %}
+    {% for requisito in requisitos  %}
+    <div class="card">
+        <table class="card-content grey lighten-2 tablaRequisitos">
+            <tr>
+                <td class="ancho6"></td>
+                <td class="center-align">
+                    <span class="grey-text">Descripción</span>
+                </td>
+                <td class="ancho6 center-align"><span class="grey-text">Estado</span>
+                </td>
+                <td class="ancho6 center-align"><span class="grey-text">Horas Previstas</span></td>
+                <td class="ancho6 center-align"><span class="grey-text">Horas Reales</span></td>
+                <td class="ancho1"></td>
+                <td class="ancho1"></td>
+                <td class="ancho1"></td>
+            </tr>
+            <tr class="alto2">
+                <td class="ancho6"><h6 class="center-align"><strong>Requisito <span> {{i}} </span></strong></h6></td>
+                <td class="center-align">
+                    <textarea type="text" length="70" maxlength="70" name="desReqMod" class="desReqMod validate" value="" readonly required>{{requisito.desReq}}</textarea></p>
+                </td>
+                <td class="ancho6 center-align">
+                    <select type="text" name = "estadoReqMod" class="estadoReqMod" class="validate" required>
+                        <option value="{{requisito.estadoReq}}" disabled selected>{{requisito.estadoReq}}</option>
+                        <option value = "PENDIENTE">PENDIENTE</option>
+                        <option value = "EN PROCESO">EN PROCESO</option>
+                        <option value = "COMPLETADO">COMPLETADO</option>
+                    </select>
+                </td>
+                <td class="ancho6 center-align">{{requisito.horPreReq}}</td>
+                <td class="ancho6 center-align">{{requisito.horReaReq}}</td>
+                <td class="ancho1"><button class="btn-floating orange right TAREA tooltipped" data-position="top" data-delay="50" data-tooltip="VER TAREAS"><i class="material-icons">reorder</i></button></td>
+                <td class="ancho1">
+                    <button type="button" class="btn-floating yellow right MODIFICAR tooltipped" data-position="top" data-delay="50" data-tooltip="MODIFICAR"><i class="material-icons">mode_edit</i></button>
+                    <button type="button" class='confirmarModRequisito btn-floating green tooltipped' data-position="top" data-delay="50" data-tooltip="CONFIRMAR MODIFICACIÓN" value="{{requisito.codReq}}"><i class="material-icons">done</i></button></td>
+                <td class="ancho1"><button type="button" class="btn-floating red right BORRAR tooltipped" data-position="top" data-delay="50" data-tooltip="BORRAR" value="{{requisito.codReq}}"><i class="material-icons">delete</i></button></td>
+            </tr>
+        </table>
+        <table class="card-action tablaTareas">
+            <thead class="grey-text"><tr><td class="center-align">Tarea</td><td class="center-align">Descripción</td><td class="center-align">Horas Previstas</td><td class="center-align">Horas Reales</td><td class="center-align estado">Estado</td><td class="center-align">Programador</td></tr></thead>
+     <!-- SACAR LAS TAREAS -->
+            {% set req = requisito.codReq %}
+            {% for  tarea in tareas if req in tarea.codReq %}
+                <tr><form>
+                <td class="middle">Tarea {{j}}<input type="hidden" name = "ordTar" id="ordTar" value="{{ j }}"/>
+                    <input type="hidden" name = "codTar" id="codTar" class="validate" value="{{ tarea.codTar }}" required/></td>
+                <td class="center-align ancho25 input-field">
+                    <input type="text" name = "desTar" id="desTar" class="validate" length="100" maxlength="100" value="{{ tarea.desTar }}" required/>
+                    <label for = "desTar" data-error="Requerido"></label>
+                </td>
+                <td class="center-align horas">
+                    <input type="number" name = "horPreTar" id="horPreTar" class="validate" value ="{{ tarea.horPreTar }}" required/>
+                    <label for = "horPreTar" data-error="Números enteros positivos"></label>
+                </td>
+                <td class="center-align horas">
+                    <input type="number" name = "horReaTar" id="horReaTar" class="validate" value ="{{ tarea.horReaTar }}" required/>
+                    <label for = "horReaTar" data-error="Números enteros positivos"></label>
+                </td>
+                <td class="center-align">
+                    <select type="text" name = "estTar" id="estTar" class="validate estTar" required>
+                        <option value = "{{ tarea.estadoTar }}"> {{ tarea.estadoTar }} </option>
+                        <option value = "PENDIENTE">PENDIENTE</option>
+                        <option value = "EN PROCESO">EN PROCESO</option>
+                        <option value = "COMPLETADO">COMPLETADO</option>
+                    </select>
+                    <label for = "estTar" data-error="Requerido"></label>
+                </td>
+                <td class="center-align ancho6">
+                    <select type="text" name = "usuTar" id="usuTar" class="validate" required>
+                        {% for programador in programadores %}
+                        <option value = "{{programador.codUsu}}"
+                                {% if tarea.codUsu == programador.codUsu%}
+                                selected
+                                {% endif %}
+                                 >{{programador.loginUsu}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td class="middle"><button type="button" class="btn-floating yellow right MODIFICARTAREA tooltipped" data-position="top" data-delay="50" data-tooltip="MODIFICAR" value="{{requisito.codReq}}"><i class="material-icons">mode_edit</i></button></td>
+                <td class="middle"><button type="button" class="btn-floating red right BORRARTAREA tooltipped" data-position="top" data-delay="50" data-tooltip="BORRAR" value="{{requisito.codReq}}"><i class="material-icons">delete</i></button></td>
+                </form>
+                </tr>
+            {% set j = j + 1 %}
+            {% endfor %}
+        </table>
+        <form class="formTarAlta">
+        <table class="card-action tablaTareas">
+            <tr>
+                <td class="middle">Tarea {{ ordUltTar+1 }}
+                    <input type="hidden" name = "ordTar" id="ordTarAlta" value="{{ ordUltTar+1 }}">
+                </td>
+                <td class="center-align">
+                    <label for = "desTarAlta" data-error="Requerido">Descripción</label>
+                    <input type="text" name = "desTarAlta" maxlength="100" length="100" id="desTarAlta" class="validate" required>
+                </td>
+                <td class="center-align horas">
+                    <label for = "horPreTarAlta" data-error="Números enteros">Horas P.</label>
+                    <input type="number" name = "horPreTarAlta" id="horPreTarAlta" class="validate" required>
+                </td>
+                <td class="center-align horas">
+                    <label for = "horReaTarAlta">Horas R.</label>
+                    <input type="number" value="0" name="horReaTarAlta" readonly/>
+                </td>
+                <td class="center-align filaEstado">
+                    <select type="text" name = "estTarAlta" id="estTarAlta" class="validate" required>
+                        <option value="-1" disabled selected>Estado</option>
+                        <option value = "PENDIENTE">PENDIENTE</option>
+                        <option value = "EN PROCESO">EN PROCESO</option>
+                        <option value = "COMPLETADO">COMPLETADO</option>
+                    </select>
+                </td>
+                <td class="center-align filaUsuario">
+                    <label for = "usuTarAlta" data-error="Requerido"></label>
+                    <select type="number" name = "usuTarAlta" id="usuTarAlta" class="validate" required>
+                        <option value="-1" disabled selected>Programador</option>
+                        {% for programador in programadores %}
+                        <option value = "{{programador.codUsu}}">{{programador.loginUsu}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td class="middle"><button type="button" class="btn-floating green right ALTATAREA tooltipped" data-position="top" data-delay="50" data-tooltip="ALTA" value="{{requisito.codReq}}"><i class="material-icons">playlist_add</i></button></td>
+            </tr>
+        </table>
+        </form>
+
+    </div>
+        {% set i = i+1 %}
+    {% endfor %}
+    {% else %}
+        <section><p>No hay requisitos definidos para este proyecto</p></section>
+    {% endif %}
+</section>
+<script src="../View/js/req.js"></script>

@@ -1,0 +1,38 @@
+<tr>
+  <th class="center-align">NOMBRE EMPRESA</th>
+  <th class="center-align">TELEFONO</th>
+  <th class="center-align">E-MAIL</th>
+  <th class="center-align">NOMBRE PERSONA CONTACTO</th>
+  <th class="center-align"></th>
+  <th class="center-align"></th>
+</tr>
+{% for cliente in clientes  %}
+    <form>
+  <tr class="tablaEditable">
+      <td id="clienteNombreEmpresa"  class="center-align">
+          <input type="text" class="cliNomEmpMod validate" name="cliNomEmpMod" value="{{cliente.nomempCli}}" readonly required/>
+          <label for ="cliNomEmpMod" data-error="Requerido"></label>
+          <input type="hidden" value="{{cliente.codCli}}" class="clienteCodigo">
+      </td>
+      <td id="clienteTlf">
+          <input type="number" class="cliTelMod validate" name="cliTelMod" value="{{cliente.tlfCli}}" readonly required minlength="9" length="9"/>
+        <label for ="cliTelMod" data-error="9 dígitos"></label>
+      </td>
+      <td id="clienteEmail">
+        <input type="email" class="cliEmailMod validate" name="cliEmailMod" value="{{cliente.emailCli}}" readonly required/> 
+        <label for ="cliEmailMod" data-error="Email no válido"></label>
+      </td>
+      <td id="clienteNombreContacto">
+          <input type="text" class="cliNomConMod validate" name="cliNomConMod" value="{{cliente.nomconCli}}" readonly required/>
+          <label for ="cliNomConMod" data-error="Requerido"></label>
+      </td>
+      <td>
+          <button type="button" class="modificarCliente btn-floating yellow tooltipped" data-position="top" data-delay="50" data-tooltip="MODIFICAR"><i class="material-icons">mode_edit</i></button>
+          <button type="button" class='confirmarModCliente btn-floating green tooltipped' data-position="top" data-delay="50" data-tooltip="CONFIRMAR MODIFICACIÓN"><i class="material-icons">done</i></button>
+      </td> 
+      <td><button type="button"  class="borrarCliente btn-floating red tooltipped" data-position="top" data-delay="50" data-tooltip="BORRAR"><i class="material-icons">delete</i></button></td>
+  </tr>
+    </form>
+{% endfor %}
+
+<script src="../View/js/cliente.js"></script>

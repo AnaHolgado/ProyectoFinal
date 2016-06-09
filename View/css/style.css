@@ -1,0 +1,468 @@
+//DATEPICKER
+.picker { outline: none; } /* Optional feature */
+/* Header - Day of the week */
+.picker__weekday-display { background-color: #f57c00; }
+/* Body - Today info */
+.picker__date-display { background-color: #ff9800; }
+/* Buttons of actions */
+.picker__nav--prev:hover { background-color: #fff3e0; }
+.picker__nav--next:hover { background-color: #fff3e0; }
+.picker__nav--prev:before {
+  border-left: 0;
+  border-right: 0.75em solid #ffb74d;
+}
+.picker__nav--next:before {
+  border-right: 0;
+  border-left: 0.75em solid #ffb74d;
+}
+.picker__today { color: #fb8c00; }
+.picker__clear { /* If you want to customize */ }
+.picker__close { color: #fb8c00; }
+.btn-flat.picker__today:active { background-color: #fff3e0; }
+.btn-flat.picker__close:active { background-color: #fff3e0; }
+.btn-flat.picker__clear:active { background-color: #fff3e0; }
+/* Select months of the year */
+.picker__select--month.browser-default {
+  display: inline;
+  background-color: #FFFFFF;
+  width: 34%;
+  border: none;
+  outline: none;
+}
+/* Every month of the year except: today */
+.picker__day { /* If you want to customize */ }
+.picker__day:hover { /* If you want to customize */ }
+.picker__day--infocus:hover { color: #f57c00; }
+.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected { color: #f57c00; }
+.picker__day.picker__day--infocus.picker__day--selected.picker__day--highlighted { background-color: #ffcc80; }
+/* Today */
+.picker__day.picker__day--infocus.picker__day--today.picker__day--selected.picker__day--highlighted { background-color: #ff9800; }
+.picker__day.picker__day--today { color: #f57c00; }
+
+//DIALOG
+.ui-dialog {
+    padding: 0.2em;
+    background-color: white;
+    box-shadow: 0 0 5px grey;
+    z-index: 100 !important;
+}
+.ui-dialog .ui-dialog-titlebar {
+  padding: 0em 0em;
+  background-color: white;
+}
+.ui-dialog .ui-dialog-title {
+  float: none;
+  margin: .1em 0;
+  white-space: nowrap;
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ui-dialog .ui-dialog-titlebar-close, .ui-dialog .ui-dialog-titlebar-close:hover {
+  top: 0em;
+  margin: 0 0 0 0;
+  text-align: center;
+}
+
+.ui-dialog .ui-dialog-content {
+  position: relative;
+  border: 0;
+  padding: 0.5em 0.5em;
+  overflow: auto;
+  text-align: center;
+ }
+.ui-dialog .ui-dialog-buttonpane {
+    background-color: white;
+    margin: 0em auto 2em;
+    padding: 0em 1em 0em .4em;
+}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+  float:none;
+  text-align: center;
+}
+.ui-dialog .ui-dialog-buttonpane button {
+  margin: 0em .4em 0.2em 0;
+  cursor: pointer;
+}
+.ui-button, .ui-button:hover, .ui-button:focus {
+  margin: 0.2em;
+  text-align: center;
+  background: none;
+  box-shadow:none;
+  color:grey;
+  border:none;
+}
+.ui-button:hover {
+    text-shadow:1px 1px 1px black;
+}
+//DRAGABLE Y DROPABLE
+.draggable, .draggable2 { 
+  display: inline-block;
+  width: 7.5em !important; 
+  height: 7.5em !important; //padding: 0.5em; margin: 10px 10px 10px 0; 
+  //border: 1px black solid;
+  }
+.droppable { display: inline-block; width: 150px; height: 150px; padding: 0.5em;  margin: 10px;}
+
+/* LOGO */
+nav img {
+    width: 4em;
+    height: 4em;
+}
+
+/* WHITEBOARD */
+#whiteboard {
+    min-width: 35em;
+    margin: 1.5em auto;
+    padding: 0;
+    width: 100%;
+   // min-height: 30em;
+    background: white;
+    box-shadow: 0px 3px 7px black;
+    -moz-box-shadow: 0px 4px 6px #333;
+    -webkit-box-shadow: 0px 4px 6px #333;
+    border: #AAAAAA 0.75em solid;
+    border-radius: 0.5em;
+    font-family: "Indie Flower";
+    line-height: 0.5em;
+    
+    -webkit-flex: 10 1 auto;
+    flex: 10 1 auto;
+}
+#whiteboard h5 {
+    text-align: center;
+}
+#whiteboard div {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+}
+#whiteboard div section {
+    display: inline-block;
+    //width: 33%;
+    min-height: 35em;
+    margin: 1em auto;
+    padding: 0.5em 0.5em;
+    border-right: #666666 1px solid;
+    
+    -webkit-flex: 5 1 30%;
+    flex: 5 1 30%;
+    
+}
+#whiteboard div section:last-child {
+    border: none;
+}
+#whiteboard div section div {
+display: inline-block;
+background:#fefabc; 
+padding:0.75em 0.25em; 
+margin:0.1em; 
+font-size:15px; 
+color: #000; 
+width:7.5em;
+height:7.5em;
+    
+-moz-transform: rotate(2deg);
+-webkit-transform: rotate(2deg);
+-o-transform: rotate(2deg);
+-ms-transform: rotate(2deg);
+transform: rotate(2deg);
+
+box-shadow: 0px 4px 6px #333;
+-moz-box-shadow: 0px 4px 6px #333;
+-webkit-box-shadow: 0px 4px 6px #333;
+
+-webkit-transition:transform 1s, height 1s, box-shadow 1s; 
+transition:transform 1s, height 1s, box-shadow 1s;
+
+overflow: hidden;
+}
+#whiteboard div section div:hover{
+-moz-transform: rotate(-2deg) !important;
+-webkit-transform: rotate(-2deg) !important;
+-o-transform: rotate(-2deg) !important;
+-ms-transform: rotate(-2deg) !important;
+transform: rotate(-2deg) !important;
+
+-moz-transform: scale(1.4) !important;
+-webkit-transform: scale(1.4) !important;
+-o-transform: scale(1.4) !important;
+-ms-transform: scale(1.4) !important;
+transform: scale(1.4) !important;
+
+box-shadow: 0px 6px 4px #333;
+-moz-box-shadow: 0px 6px 4px #333;
+-webkit-box-shadow: 0px 6px 4px #333;
+
+z-index: 3;
+}
+
+#whiteboard div section div *{
+font-size: 1em;
+}
+#whiteboard div section div .desc{
+font-size: 0.7em;
+}
+#whiteboard div section div:hover .desc{
+//display: block;
+}
+.deshabilitar {
+    pointer-events: none;
+    opacity: 0.6;
+}
+.descripcion {
+    display:inline-block;
+    margin-top: -1em;
+    background: none;
+    font-size: 2em;
+    line-height: 0.4em;
+    
+    border:none;   
+}
+.desc {
+    padding:1em;
+    line-height: 1em;
+    //font-size: 0.75em;
+}
+
+#pared {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+}
+.postalita {
+    -webkit-flex: 1 1 15%;
+    flex: 1 1 15%;
+}
+.taco {
+    -webkit-flex: 1 1 15%;
+    flex: 1 1 15%;
+}
+.postalita div {
+    margin: 5em auto 5%;
+    width: 7.5em;
+    height:7.5em;
+    background: #03a9f4;
+    border-radius: 15%;
+    line-height: 7.5em;
+    
+    box-shadow: 0px 4px 6px #333;
+    -moz-box-shadow: 0px 4px 6px #333;
+    -webkit-box-shadow: 0px 4px 6px #333;
+}
+
+//FORMATO TABLAS CRUD
+td input , td button{
+    text-align:center;
+}
+.tablaEditable td, .tablaEditable th {
+    line-height:1em;
+    min-width: 0em !important;
+    margin:0.5em 0 ;
+    padding:0.5em 0;
+    height:1em;
+}
+th {
+    font-size: 0.9em !important;
+}
+.tablaEditable #usuarioCategoria , .tablaEditable #usuarioNombre {
+    min-width: 15em;
+}
+
+.loginUsu{
+    width: 6em;
+}
+.anchoBtn {
+    width:1em;
+    padding:5px !important;
+}
+
+.tablaEditable input, .tablaEditable select input,.tablaEditable input.select-dropdown{
+    line-height:1em !important;
+    min-width: 0em !important;
+    margin:0 !important;
+    padding:0 !important;
+    height:1.2em !important;
+    border:none !important;
+    color: black !important;
+    font-size:0.9em;
+    text-align: center;
+}
+.tablaEditable span.caret {
+    display: none;
+}
+.tablaEditable .margin0{
+    margin: auto 0 !important;
+    padding: 0.5em 1px !important;
+}
+.tablaEditable .minWidth5{
+    min-width: 5em !important;
+}
+
+.categoria, .permiso, .nomempCliMod, .faseProMod, .estadoReqMod, .fechfinProMod, .tablaEditable input{
+    pointer-events:none;
+}
+
+h3 {
+    text-shadow: 0.05em 0.05em 0.05em gray;
+    font-weight: bold;
+    color: rgba(200,200,200,1);
+    text-align: center;
+}
+
+.horas {
+    width: 3em !important;
+}
+.estTar, .estTarAlta, .estado {
+    width: 8em !important;
+}
+.tablaTareas td, .tablaTareas th{
+    line-height:1em !important;
+    min-width: 0em !important;
+    margin:0em 0.25em;
+    padding:0em 0.25em;
+    vertical-align: bottom;
+}
+.tablaTareas input, .tablaTareas select input,.tablaTareas {
+    line-height:1em !important;
+}
+.tablaTareas  .middle{
+    vertical-align: middle;
+}
+
+.formTarAlta .tablaTareas{
+    height: 5.5em;
+    padding-top:3em;
+}
+
+#proyectoCodigo, #proyectoFechini {
+    font-size:0.85em;
+}
+body {
+    background: white;
+    height: 100%;
+}
+#contenido {
+    min-height:20em;
+}
+.desReqMod {
+    
+}
+.ancho25 {
+    width: 28em !important;
+}
+.ancho6 {
+    width: 7em !important;
+}
+.ancho1 {
+    width: 1em !important;
+}
+.tablaRequisitos input, .tablaRequisitos select input,.tablaRequisitos input.select-dropdown, .tablaRequisitos textarea{
+    min-width: 0em !important;
+    margin:0 !important;
+    padding:0 !important;
+    //height:1.2em !important;
+    border:none !important;
+    color: black !important;
+    //font-size:0.85em;
+    resize:none;
+    text-align: center;
+    overflow: hidden;
+}
+.tablaRequisitos span.caret {
+    display: none;
+}
+.tablaRequisitos td, .tablaRequisitos th{
+    line-height:1em !important;
+    min-width: 0em !important;
+    margin:0em 0.25em;
+    padding:0em 0.25em;
+    max-width: none;
+}
+/* Input type number */
+input[type='number']{
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: none;
+    text-align: center;
+}
+label::after{
+    position:static !important;
+    transform:none !important;
+    transition: none;
+}
+label.invalid {
+    color:red;
+    top: 4rem !important;
+    font-size: 0.7em !important;
+    transform:none !important;
+}
+
+/*Página Presentacion Usuario*/
+.proyectos {
+    margin: 1.5em;
+    padding: 0.5em;
+    box-shadow:0 0 5px black;
+}
+
+#pass label::after{
+    margin-top:1em;
+    text-align: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.card.small .card-action{
+    z-index: 0 !important;
+}
+
+
+/*INDEX*/
+#contenido h2 {
+    font-family: Roboto Slab;
+/*    font-weight: bold;*/
+    text-shadow: 1px 1px 2px teal;
+}
+#contenido img {
+    margin:2em;
+}
+#contenido .imagen *{
+    margin-top: 5em;
+    width:75%;
+}
+
+/*TAB*/
+#tab {
+    width:50%;
+    margin: 0 25%;
+    border: 0.2em dashed #CCC;
+    border-style: dashed;
+}
+.marcador li{
+    float:left;
+    width: 5em;
+    text-align: center;
+}
+
+/*MEDIA QUERYS */
+@media only screen and (min-width : 993px) {
+  .container {
+    width: 80%; } 
+}
+
+@media (max-width: 993px) {
+    .personal span{
+        text-align: center !important;
+    }
+    .container {
+        width: 95%; 
+    } 
+    #tab {
+        width:95%;
+        margin:0 auto;
+    }
+}
